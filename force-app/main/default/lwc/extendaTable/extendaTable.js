@@ -1,19 +1,65 @@
-import { api } from 'lwc'
+//import { api } from 'lwc'
 import LightningDatatable from 'lightning/datatable'
-import DatatablePicklistTemplate from './picklist-template.html'
+import PicklistTemplate from './picklist-template.html'
+import MultiSelectTemplate from './multiselect-template.html'
+import InputTemplate from './input-template.html'
 
 export default class ExtendaTable extends LightningDatatable {
-
-    @api families
     
     constructor() {
         super()
     }
 
+	/* handleChange({ detail }) {
+		this.dispatchEvent(new CustomEvent('change', {
+			detail,
+			composed: true,
+			bubbles: true,
+		}))
+	} */
+
     static customTypes = {
         picklist: {
-            template: DatatablePicklistTemplate,
-            typeAttributes: ['label', 'placeholder', 'options', 'value', 'context'],
+            template: PicklistTemplate,
+            typeAttributes: [
+				'label', 
+				'placeholder', 
+				'options', 
+				'value',
+				'hide',
+				'relatedTo',
+				'field',
+				'readOnly',
+			],
+		},
+        multiselect: {
+            template: MultiSelectTemplate,
+            typeAttributes: [
+				'label', 
+				'placeholder', 
+				'options', 
+				'value', 
+				'header',
+				'hide',
+				'relatedTo',
+				'field',
+			],
+        },
+        input: {
+            template: InputTemplate,
+            standardCellLayout: false,
+            typeAttributes: [
+				'label', 
+				'placeholder', 
+				'options', 
+				'value',
+				'hide',
+				'relatedTo',
+				'field',
+				'variant',
+				'editable', 
+				'inputType',
+			],
         },
     }
 }
