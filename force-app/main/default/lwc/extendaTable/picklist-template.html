@@ -1,9 +1,12 @@
 <template>
-    <c-datatable-picklist 
+    <c-extenda-picklist 
         label={typeAttributes.label} 
         value={typeAttributes.value}
         placeholder={typeAttributes.placeholder} 
         options={typeAttributes.options} 
-        context={typeAttributes.context}
-    ></c-datatable-picklist>
+        hide={typeAttributes.hide}
+        related-to={typeAttributes.relatedTo}
+        field={typeAttributes.field}
+        read-only={typeAttributes.readOnly}
+    ></c-extenda-picklist>
 </template>
